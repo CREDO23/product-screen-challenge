@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Description from "../components/Product-screen/Description";
+import ImageCard from "../components/Product-screen/ImageCard";
 
 export default function () {
   return (
@@ -8,7 +9,7 @@ export default function () {
           <Navbar />
         </div>
         <div className="w-full h-full">
-          <Description />
+          <ImageCard/>
         </div>
     </div>
   );
