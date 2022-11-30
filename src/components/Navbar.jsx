@@ -5,7 +5,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Menu from "./Menu";
 
 export default function () {
-    
+
   const [hambourger, setHambourger] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ export default function () {
           onClick={() => {
             setHambourger(prev => !prev);
           }}
-          className="text-sky-900"
+          className=" text-black"
           size="2x"
           icon={faBars}
         />
