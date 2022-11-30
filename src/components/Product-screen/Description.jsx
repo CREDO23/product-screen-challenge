@@ -8,8 +8,23 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import jordRed from "../../assets/jordRedMini.png";
 import jordBlack from "../../assets/jordBlackMini.png";
+import { useState } from "react";
 
 export default function () {
+  const [sizes, setZizes] = useState([
+    10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110,
+  ]);
+
+  const handleRating = (starts) => {
+    return Array.from(Array(starts), (e, i) => {
+      return (
+        <span>
+          <FontAwesomeIcon icon={faStar} />
+        </span>
+      );
+    });
+  };
+
   return (
     <div className="w-1/4 p-5  text-gray-800 flex flex-col gap-8 items-start justify-evenly ">
       <div className=" flex flex-col gap-y-2">
@@ -18,20 +33,7 @@ export default function () {
         </p>
 
         <div className=" flex items-center gap-2">
-          <span>
-            <span>
-              <FontAwesomeIcon icon={faStar} />
-            </span>
-            <span>
-              <FontAwesomeIcon icon={faStar} />
-            </span>
-            <span>
-              <FontAwesomeIcon icon={faStar} />
-            </span>
-            <span>
-              <FontAwesomeIcon icon={faStar} />
-            </span>
-          </span>
+          <span>{handleRating(4)}</span>
           <span className="text-sm text-gray-400">(14 Reviews)</span>
         </div>
       </div>
@@ -46,15 +48,15 @@ export default function () {
 
         <div className="text-xs flex flex-col items-start gap-1 font-light">
           <div className="flex gap-3 items-center">
-            <FontAwesomeIcon icon={faEye} />
+            <FontAwesomeIcon className="text-gray-400" icon={faEye} />
             <p>Same manufacturer as church's & Kenzo</p>
           </div>
           <div className="flex gap-3  items-center">
-            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon className="text-gray-400" icon={faStar} />
             <p>Avg Review : 4.4/5</p>
           </div>
           <div className="flex gap-3  items-center">
-            <FontAwesomeIcon icon={faCheck} />
+            <FontAwesomeIcon className="text-gray-400" icon={faCheck} />
             <p>Certifications : BSCI & SMECTA</p>
           </div>
         </div>
@@ -89,39 +91,14 @@ export default function () {
         </div>
 
         <div className="flex flex-wrap gap-1">
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            10
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            20
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            30
-          </div>
-          <div className="h-8 w-8 border-gray-700 border-2 flex items-center justify-center text-sm font-light">
-            40
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            50
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            60
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            70
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            80
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            90
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            100
-          </div>
-          <div className="h-8 w-8 flex items-center justify-center text-sm font-light border">
-            110
-          </div>
+          {sizes.map((size, index) => (
+            <div
+              key={index}
+              className="h-8 w-8 flex items-center justify-center text-sm font-light border"
+            >
+              {size}
+            </div>
+          ))}
         </div>
 
         <div>
@@ -142,7 +119,7 @@ export default function () {
           </p>
         </div>
 
-        <div className="flex flex-col items-center text-sm divide-y-2">
+        <div className="flex flex-col items-center text-sm divide-y">
           <div className="w-full flex items-center hover:bg-gray-100 cursor-pointer p-2 justify-between">
             <p>Shipping and Returns</p>
             <FontAwesomeIcon icon={faPlus} />
