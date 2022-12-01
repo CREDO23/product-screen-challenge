@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ImageCard from "./ImageCard";
-import minis from '../../assets/Mini'
 
-const imagesUrls = import.meta.glob("../../assets/Mini/*");
+const miniImagesUrls = import.meta.glob("../../assets/Minis/*");
+const imagesUrls = import.meta.glob("../../assets/Images/*");
+
+const miniUrls = Promise.all(
+  Object.values(miniImagesUrls).map(
+    async (url) => await url().then((res) => res.default)
+  )
+);
 
 const urls = Promise.all(
   Object.values(imagesUrls).map(
@@ -10,19 +16,61 @@ const urls = Promise.all(
   )
 );
 
+const miniPaths = await miniUrls;
+
 const paths = await urls;
 
 export default function () {
+  const [selcted, setSelected] = useState(0);
+  const carousel = useRef();
 
-    console.log(minis)
+  let carouselLength = 1;
 
-  return <div>
-    <div className="h-10 w-10">
-        
+  const handleScroll = () => {
+    setInterval(() => {
+      carousel.current?.scrollTo({
+        behavior: "smooth",
+        top: (carousel.current.scrollHeight / paths.length) * carouselLength,
+      });
 
+      carouselLength++;
+
+      if (carouselLength == paths.length) {
+        carouselLength = 1;
+      }
+    }, 2000);
+  };
+
+  useEffect(() => {
+    handleScroll();
+  }, [carouselLength]);
+
+  return (
+    <div className="w-1/3 flex p-3 ">
+      <div className="h-10 w-10 flex flex-col gap-3">
+        {miniPaths.map((path, index) => (
+          <img
+            key={index}
+            src={path}
+            onClick={() => setSelected(index)}
+            className={`h-8 ${
+              selcted == index ? "border" : ""
+            } cursor-pointer w-8 p-1 rounded-full`}
+            alt="jordan"
+          />
+        ))}
+      </div>
+
+      <ul
+        ref={carousel}
+        className=" overflow-auto no-scrollbar bg-white w-full flex flex-col gap-3"
+      >
+        {paths.map((path) => (
+          <li>
+            <ImageCard image={path} />
+          </li>
+        ))}
+      </ul>
     </div>
-    <div>
-
-    </div>
-  </div>;
+  );
 }

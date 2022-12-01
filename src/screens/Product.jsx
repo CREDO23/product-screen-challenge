@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Description from "../components/Product-screen/Description";
-import ImageCard from "../components/Product-screen/ImageCard";
+import Carousel from "../components/Product-screen/Carousel";
 
 export default function () {
   return (
@@ -8,8 +8,8 @@ export default function () {
         <div className="w-full">
           <Navbar />
         </div>
-        <div className="w-full flex h-full">
-          <ImageCard/>
+        <div className="w-full gap-3 flex h-full">
+        <Carousel/>
           <Description/>
         </div>
     </div>
