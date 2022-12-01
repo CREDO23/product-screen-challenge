@@ -8,8 +8,9 @@ export default function () {
         <div className="w-full">
           <Navbar />
         </div>
-        <div className="w-full h-full">
+        <div className="w-full flex h-full">
           <ImageCard/>
+          <Description/>
         </div>
     </div>
   );

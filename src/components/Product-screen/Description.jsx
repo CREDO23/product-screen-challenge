@@ -6,8 +6,6 @@ import {
   faBoltLightning,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import jordRed from "../../assets/jordRedMini.png";
-import jordBlack from "../../assets/jordBlackMini.png";
 import { useState } from "react";
 
 export default function () {
@@ -26,7 +24,7 @@ export default function () {
   };
 
   return (
-    <div className="w-1/4 p-5  text-gray-800 flex flex-col gap-8 items-start justify-evenly ">
+    <div className="w-1/4 p-1  text-gray-800 flex flex-col gap-8 items-start justify-evenly ">
       <div className=" flex flex-col gap-y-2">
         <p className=" font-semibold text-2xl">
           Cadance Leather Sneakers from women
@@ -77,17 +75,9 @@ export default function () {
 
       <div className=" flex flex-col gap-y-5">
         <div className="w-full flex gap-2 flex-wrap">
-          <img
-            className="w-8 border-gray-700 border rounded-full h-8 bg-gray-300"
-            src={jordBlack}
-            alt="jordan"
-          />
+          <div className="w-8 border-gray-700 border rounded-full h-8 bg-gray-300"></div>
 
-          <img
-            className="w-8 rounded-full h-8 bg-orange-400"
-            src={jordRed}
-            alt="jordan"
-          />
+          <div className="w-8 rounded-full h-8 bg-orange-400"></div>
         </div>
 
         <div className="flex flex-wrap gap-1">
