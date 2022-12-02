@@ -67,6 +67,7 @@ export default memo( function () {
       <ul
          onMouseOver={() =>{
             clearInterval(interval)
+            
          } } onMouseLeave={() =>{
           setinterval(handleScroll())
          } }
