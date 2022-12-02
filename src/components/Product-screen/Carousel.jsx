@@ -23,8 +23,6 @@ const paths = await urls;
 export default function () {
   const carousel = useRef();
 
-  const [selected , setSelected] = useState()
-
   let carouselLength = 1;
  
 
@@ -53,7 +51,6 @@ export default function () {
         {miniPaths.map((path, index) => (
           <img
             key={index}
-            onClick={() => (setSelected(index))}
             src={path}
             className={`h-8 ${
               selected == index ? "border" : ""
