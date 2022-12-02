@@ -43,7 +43,7 @@ export default function () {
 
   useEffect(() => {
     handleScroll()
-  }, [carouselLength, selected]);
+  }, [carouselLength]);
 
   return (
     <div className="w-1/3 flex p-3 ">
@@ -52,9 +52,7 @@ export default function () {
           <img
             key={index}
             src={path}
-            className={`h-8 ${
-              selected == index ? "border" : ""
-            } cursor-pointer w-8 p-1 rounded-full`}
+            className={`h-8 cursor-pointer w-8 p-1 rounded-full`}
             alt="jordan"
           />
         ))}
