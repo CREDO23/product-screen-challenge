@@ -3,7 +3,7 @@
 export default function ({ smallDescription, image }) {
   return (
     <>
-      <div className=" bg-slate-50  flex flex-col items-center justify-center  md:h-96 p-3">
+      <div className="border rounded-md flex flex-col items-center justify-center  md:h-96 p-3">
         <img src={image} className="" alt="jordan" />
       </div>
       <div>

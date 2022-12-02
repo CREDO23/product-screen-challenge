@@ -28,6 +28,7 @@ export default function () {
 
   const handleScroll = () => {
     return setInterval(() => {
+    console.log(carousel.current.onHover)
       carousel.current?.scrollTo({
         behavior: "smooth",
         top: (carousel.current.scrollHeight / paths.length) * carouselLength,
@@ -46,7 +47,7 @@ export default function () {
   }, [carouselLength]);
 
   return (
-    <div className="w-1/3 flex p-3 ">
+    <div className="w-1/3 flex">
       <div className="w-10 flex flex-col gap-3">
         {miniPaths.map((path, index) => (
           <img

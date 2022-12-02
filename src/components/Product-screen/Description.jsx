@@ -24,8 +24,8 @@ export default function () {
   };
 
   return (
-    <div className="w-1/4 p-1  text-gray-800 flex flex-col gap-8 items-start justify-evenly ">
-      <div className=" flex flex-col gap-y-2">
+    <div className="w-1/4 text-gray-800 flex flex-col gap-8 items-start justify-evenly ">
+      <div className=" flex flex-col gap-2">
         <p className=" font-semibold text-2xl">
           Cadance Leather Sneakers from women
         </p>
@@ -36,7 +36,7 @@ export default function () {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-y-2">
+      <div className=" flex flex-col gap-2">
         <div className="w-full flex gap-2 items-center ">
           <p className=" font-medium">Manufacturer Profile</p>
           <span className="text-sm text-gray-500 underline">
@@ -73,7 +73,7 @@ export default function () {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-y-5">
+      <div className=" flex flex-col gap-5">
         <div className="w-full flex gap-2 flex-wrap">
           <div className="w-8 border-gray-700 border rounded-full h-8 bg-gray-300"></div>
 
