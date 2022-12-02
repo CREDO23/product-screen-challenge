@@ -21,13 +21,15 @@ const miniPaths = await miniUrls;
 const paths = await urls;
 
 export default function () {
-  const [selcted, setSelected] = useState(0);
   const carousel = useRef();
 
+  const [selected , setSelected] = useState()
+
   let carouselLength = 1;
+ 
 
   const handleScroll = () => {
-    setInterval(() => {
+    return setInterval(() => {
       carousel.current?.scrollTo({
         behavior: "smooth",
         top: (carousel.current.scrollHeight / paths.length) * carouselLength,
@@ -42,19 +44,19 @@ export default function () {
   };
 
   useEffect(() => {
-    handleScroll();
-  }, [carouselLength]);
+    handleScroll()
+  }, [carouselLength, selected]);
 
   return (
     <div className="w-1/3 flex p-3 ">
-      <div className="h-10 w-10 flex flex-col gap-3">
+      <div className="w-10 flex flex-col gap-3">
         {miniPaths.map((path, index) => (
           <img
             key={index}
+            onClick={() => (setSelected(index))}
             src={path}
-            onClick={() => setSelected(index)}
             className={`h-8 ${
-              selcted == index ? "border" : ""
+              selected == index ? "border" : ""
             } cursor-pointer w-8 p-1 rounded-full`}
             alt="jordan"
           />
