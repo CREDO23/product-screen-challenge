@@ -9,7 +9,7 @@ export default function () {
       <div className="w-full">
         <Navbar />
       </div>
-      <div className="w-full my-5 gap-6 justify-center flex h-full">
+      <div className="w-full my-5 gap-10 flex-wrap justify-center flex h-full">
         <LeftSide />
         <Carousel />
         <Description />

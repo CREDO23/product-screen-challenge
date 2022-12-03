@@ -28,7 +28,7 @@ export default function () {
   ];
 
   return (
-    <div className="flex flex-col divide-x gap-4 items-start">
+    <div className=" hidden md:flex flex-col divide-x gap-4 items-start">
       <p className="font-medium">All Favorites</p>
       <ul className="text-sm pl-3 flex flex-col items-start gap-2 font-light">
         {favorites.map((el, index) => (
