@@ -9,7 +9,7 @@ export default function () {
       <div className="w-full my-5 gap-10 flex-wrap overflow-auto no-scrollbar px-3 justify-center flex h-full">
         <LeftSide />
         <Carousel />
-        <Description  image={jord}/>
+        <Description />
       </div>
     
   );
