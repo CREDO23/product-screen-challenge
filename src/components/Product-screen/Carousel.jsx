@@ -27,16 +27,14 @@ export default memo(function () {
 
   const [interval, setinterval] = useState();
 
-  const handleScroll = () => {
-    
+  const [selected, setSelected] = useState(0);
+
+  const handleScrollAuto = () => {
     return setInterval(() => {
-     
-        carousel.current?.scrollTo({
-          behavior: "smooth",
-          top: (carousel.current.scrollHeight / paths.length) * carouselLength,
-        });
-      
-     
+      carousel.current?.scrollTo({
+        behavior: "smooth",
+        top: (carousel.current.scrollHeight / paths.length) * carouselLength,
+      });
 
       carouselLength++;
 
@@ -46,8 +44,21 @@ export default memo(function () {
     }, 2000);
   };
 
+  const handleScroll = (index) => {
+    clearInterval(interval);
+    setSelected(index + 1);
+    carousel.current?.scrollTo({
+      behavior: "smooth",
+      top: (carousel.current.scrollHeight / paths.length) * index,
+    });
+    setTimeout(() => {
+      setinterval(handleScrollAuto());
+      setSelected(0);
+    }, 10000);
+  };
+
   useEffect(() => {
-    setinterval(handleScroll());
+    setinterval(handleScrollAuto());
   }, []);
 
   return (
@@ -55,10 +66,12 @@ export default memo(function () {
       <div className="w-10 md:flex hidden  flex-col gap-3">
         {miniPaths.map((path, index) => (
           <img
-          onClick={() => clearInterval(interval)}
+            onClick={() => handleScroll(index)}
             key={index}
             src={path}
-            className={`h-8 cursor-pointer w-8 p-1 rounded-full`}
+            className={`h-8 cursor-pointer ${
+              selected == index + 1 ? "border" : ""
+            } w-8 p-1 rounded-full`}
             alt="jordan"
           />
         ))}
@@ -73,11 +86,9 @@ export default memo(function () {
             onMouseOver={() => {
               clearInterval(interval);
             }}
-            
             onMouseLeave={() => {
               setinterval(handleScroll());
             }}
-
             className="w-full h-full"
           >
             <ImageCard image={path} />
