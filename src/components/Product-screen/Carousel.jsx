@@ -51,7 +51,7 @@ export default memo(function () {
   }, []);
 
   return (
-    <div className="md:w-1/3 w-full h max-h-[32rem] flex ">
+    <div className="md:w-1/3 w-full max-h-[32rem] flex ">
       <div className="w-10 md:flex hidden  flex-col gap-3">
         {miniPaths.map((path, index) => (
           <img
@@ -66,18 +66,19 @@ export default memo(function () {
 
       <ul
         ref={carousel}
-        className=" overflow-auto no-scrollbar bg-white w-full  flex flex-col gap-3"
+        className=" overflow-auto no-scrollbar bg-white w-full h-64 md:h-full  flex flex-col md:gap-3"
       >
         {paths.map((path) => (
           <li
             onMouseOver={() => {
               clearInterval(interval);
             }}
+            
             onMouseLeave={() => {
               setinterval(handleScroll());
             }}
 
-            className="w-full"
+            className="w-full h-full"
           >
             <ImageCard image={path} />
           </li>

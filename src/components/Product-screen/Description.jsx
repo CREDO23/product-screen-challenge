@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-export default function () {
+export default function ({image}) {
   const [sizes, setZizes] = useState([
     10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110,
   ]);
@@ -24,7 +24,14 @@ export default function () {
   };
 
   return (
-    <div className="md:w-1/4 w-full text-gray-800 hidden  md:flex flex-col gap-8 items-start justify-evenly ">
+    <div className="md:w-1/4 w-full text-gray-800 order-first md:order-last md:flex flex-col gap-8 items-start justify-evenly ">
+       <div className="border md:hidden rounded-md flex flex-col items-center justify-center h-80 p-3">
+        <img
+          className="hover:scale-150 object-contain transition-all"
+          src={image}
+          alt="jordan"
+        />
+      </div>
       <div className=" flex flex-col gap-2">
         <p className=" font-semibold text-2xl">
           Cadance Leather Sneakers from women
@@ -59,7 +66,7 @@ export default function () {
           </div>
         </div>
 
-        <div className="flex mt-4 items-center justify-between">
+        <div className="flex mt-4 items-center gap-10">
           <div>
             <span>$150</span>
             <p className="underline text-xs text-gray-500">
