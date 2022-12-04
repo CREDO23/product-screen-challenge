@@ -87,7 +87,7 @@ export default memo(function () {
               clearInterval(interval);
             }}
             onMouseLeave={() => {
-              setinterval(handleScroll());
+              setinterval(handleScrollAuto());
             }}
             className="w-full h-full"
           >
