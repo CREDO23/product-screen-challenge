@@ -7,8 +7,9 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import jord from '../../assets/Images/jord1.png'
 
-export default function ({image}) {
+export default function () {
   const [sizes, setZizes] = useState([
     10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110,
   ]);
@@ -28,7 +29,7 @@ export default function ({image}) {
        <div className="border md:hidden rounded-md flex flex-col items-center justify-center h-80 p-3">
         <img
           className="hover:scale-150 object-contain transition-all"
-          src={image}
+          src={jord}
           alt="jordan"
         />
       </div>
