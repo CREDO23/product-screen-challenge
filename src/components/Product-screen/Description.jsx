@@ -24,7 +24,7 @@ export default function () {
   };
 
   return (
-    <div className="w-1/4 text-gray-800 flex flex-col gap-8 items-start justify-evenly ">
+    <div className="md:w-1/4 w-full text-gray-800 hidden  md:flex flex-col gap-8 items-start justify-evenly ">
       <div className=" flex flex-col gap-2">
         <p className=" font-semibold text-2xl">
           Cadance Leather Sneakers from women
