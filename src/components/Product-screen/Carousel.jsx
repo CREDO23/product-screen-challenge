@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState ,memo } from "react";
 import ImageCard from "./ImageCard";
 
 const miniImagesUrls = import.meta.glob("../../assets/Minis/*");
@@ -20,21 +20,26 @@ const miniPaths = await miniUrls;
 
 const paths = await urls;
 
-export default function () {
+export default memo( function () {
   const carousel = useRef();
 
   let carouselLength = 1;
+
+  const [interval,setinterval] = useState()
  
 
   const handleScroll = () => {
     return setInterval(() => {
-    console.log(carousel.current.onHover)
+    
       carousel.current?.scrollTo({
         behavior: "smooth",
         top: (carousel.current.scrollHeight / paths.length) * carouselLength,
       });
 
-      carouselLength++;
+     
+        carouselLength++;
+      
+      
 
       if (carouselLength == paths.length) {
         carouselLength = 1;
@@ -43,8 +48,8 @@ export default function () {
   };
 
   useEffect(() => {
-    handleScroll()
-  }, [carouselLength]);
+    setinterval(handleScroll())
+  }, []);
 
   return (
     <div className="w-1/3 flex">
@@ -60,15 +65,21 @@ export default function () {
       </div>
 
       <ul
+         onMouseOver={() =>{
+            clearInterval(interval)
+            
+         } } onMouseLeave={() =>{
+          setinterval(handleScroll())
+         } }
         ref={carousel}
         className=" overflow-auto no-scrollbar bg-white w-full flex flex-col gap-3"
       >
         {paths.map((path) => (
-          <li>
+          <li >
             <ImageCard image={path} />
           </li>
         ))}
       </ul>
     </div>
   );
-}
+})
