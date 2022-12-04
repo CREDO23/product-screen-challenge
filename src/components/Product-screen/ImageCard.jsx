@@ -1,9 +1,9 @@
 export default function ({ smallDescription, image }) {
   return (
     <>
-      <div className="md:border rounded-md flex flex-col items-center justify-center  h-2/3 md:h-96 p-3">
+      <div className="md:border rounded-md flex flex-col items-center justify-center  h-full md:h-96 p-3">
         <img
-          className="hover:scale-150 transition-all"
+          className="hover:scale-150 object-contain transition-all"
           src={image}
           alt="jordan"
         />

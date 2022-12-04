@@ -28,9 +28,9 @@ export default function () {
   ];
 
   return (
-    <div className=" hidden md:flex flex-col divide-x gap-4 items-start">
+    <div className=" md:flex order-last md:order-first flex-col md:divide-x gap-4 items-start">
       <p className="font-medium">All Favorites</p>
-      <ul className="text-sm pl-3 flex flex-col items-start gap-2 font-light">
+      <ul className="text-sm md:pl-3 flex md:flex-col flex-wrap items-start gap-2 font-light">
         {favorites.map((el, index) => (
           <a href="" className="hover:underline">
             <li key={index} className={`${el.selected ? 'text-blue-700 ' : ''}`}>{el.name}</li>
