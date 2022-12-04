@@ -30,13 +30,12 @@ export default memo(function () {
   const handleScroll = () => {
     
     return setInterval(() => {
-      console.log(carousel.current.i)
-      if(carousel.current.scrollHeight > 600){
+     
         carousel.current?.scrollTo({
           behavior: "smooth",
           top: (carousel.current.scrollHeight / paths.length) * carouselLength,
         });
-      }
+      
      
 
       carouselLength++;
@@ -67,7 +66,7 @@ export default memo(function () {
 
       <ul
         ref={carousel}
-        className=" overflow-auto no-scrollbar bg-white w-full flex-wrap flex md:flex-col gap-3"
+        className=" overflow-auto no-scrollbar bg-white w-full  flex flex-col gap-3"
       >
         {paths.map((path) => (
           <li
