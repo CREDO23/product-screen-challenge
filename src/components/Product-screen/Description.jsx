@@ -25,7 +25,7 @@ export default function () {
   };
 
   return (
-    <div className="md:w-1/4 w-full text-gray-800 order-first md:order-last md:flex flex-col gap-8 items-start justify-evenly ">
+    <div className="md:w-1/4 w-full text-gray-800 order-first md:order-last md:flex flex-col gap-10 items-start ">
        <div className="border md:hidden rounded-md flex flex-col items-center justify-center h-80 p-3">
         <img
           className="hover:scale-150 object-contain transition-all"
